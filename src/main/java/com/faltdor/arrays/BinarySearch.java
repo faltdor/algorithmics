@@ -31,4 +31,28 @@ public class BinarySearch {
 	public static int binarySearch(int [] elements, int keyToFind) {
 		return binarySearchRecursive(elements, keyToFind, 0, elements.length -1);
 	}
+	
+	
+	public static int binarySearchIterative(int [] elements, int keyToFind) {
+		int lowIndex = 0;
+	    int highIndex = elements.length -1;
+
+	    while (lowIndex <= highIndex) {
+
+	      int mid = lowIndex + ((highIndex - lowIndex) / 2);
+
+	      if (elements[mid] == keyToFind) {
+	        return mid;
+	      }
+
+	      if (keyToFind < elements[mid]) {
+	        highIndex = mid - 1;
+	      }
+	      else {
+	        lowIndex = mid + 1;
+	      }
+	    }
+
+	    return -1;
+	}
 }
